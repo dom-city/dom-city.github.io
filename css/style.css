@@ -1,0 +1,486 @@
+:root {
+    --color-board-background: #6abe30;
+    --color-progress-background: #6abe30;
+}
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+body * {
+    font-family: "Exo 2", "Lato", "Helvetica Neue", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-weight: 600;
+}
+
+code {
+    background: darkgray;
+    font-family: monospace;
+}
+
+button > [data-prefix^="fa-solid"]:hover {
+    color: white;
+    cursor: pointer;
+}
+
+#container {
+    display: flex;
+    box-sizing: border-box;
+}
+
+.game {
+    text-align: center;
+    overflow-x: visible;
+    background: gray;
+}
+
+#board {
+    border: solid 20px var(--color-board-background);
+    border-radius: 60px;
+    background: var(--color-board-background);
+    display: grid;
+}
+
+.editors {
+    background: darkgray;
+    display: flex;
+    justify-content: center;
+}
+
+.level {
+    background: lightgray;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.editor-upper,
+.editor-lower {
+    flex-basis: 45%;
+    padding: 5px 0 5px 0;
+}
+
+.header {
+    padding: 15px;
+    color: lightgray;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.header img {
+    transform: scale(2);
+    image-rendering: pixelated;
+    margin: 0 1rem 0 1rem;
+}
+
+#level-name {
+    margin: 0 1rem 1rem 1rem;
+}
+
+.editor {
+    text-align: left;
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    border: solid 10px rgba(0, 0, 0, 0.35);
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.editor * {
+    font-family: menlo, monospace;
+    line-height: 150%;
+    padding: 0;
+    margin: 0;
+}
+
+.editor .input-header {
+    text-align: left;
+    padding: 10px 15px;
+    background: rgba(0, 0, 0, 0.15);
+    border-top: solid 1px rgba(255, 255, 255, 0.05);
+    border-bottom: solid 1px rgba(255, 255, 255, 0.05);
+    border-radius: 2px 2px 0 0;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.editor .file-name {
+    float: right;
+    opacity: 0.5;
+}
+
+.editor .code-view {
+    background: #efefef;
+    color: #aaa;
+}
+.editor .file-window {
+    padding: 10px 10px 10px 46px;
+    position: relative;
+    height: 100%;
+}
+
+.file-window .line-numbers {
+    background: #ddd;
+    color: #999;
+}
+
+.editor .line-numbers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: menlo, monospace;
+    padding: 10px 10px;
+    height: 100%;
+    line-height: 150%;
+    text-align: right;
+}
+
+.editor input {
+    font-family: menlo, monospace;
+    color: red;
+    border: none;
+    width: 40%;
+    background: none;
+}
+
+.editor input:focus {
+    outline: none;
+    border-color: red;
+}
+
+.editor-button {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    color: black;
+    border: 1px solid black;
+    padding: 0.1rem 1rem 0.1rem 1rem;
+    box-shadow: 5px 5px 0px 0px lightgrey;
+}
+.editor-button:hover {
+    color: darkgray;
+    cursor: pointer;
+}
+
+.code-markup {
+    line-height: 150%;
+    font-family: menlo;
+    z-index: 1;
+}
+
+.code-markup * {
+    color: gray;
+}
+
+#js-input input::placeholder {
+    opacity: 1;
+    color: red;
+}
+
+#js-input pre {
+    word-break: break-word;
+}
+
+#level-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.level-nav .nav-button,
+.level-nav .nav-menu,
+.menu-header .close-menu {
+    text-decoration: none;
+    color: gray;
+    border: none;
+    background-color: transparent;
+}
+
+.menu {
+    padding-left: 10px;
+    padding-right: 10px;
+    background: lightgray;
+    width: 100%;
+    height: 100%;
+    color: black;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.level.hidden,
+.menu.hidden {
+    display: none;
+}
+
+.level-number {
+    margin-right: 0.5rem;
+}
+
+.level-passed {
+    margin-right: 0.5rem;
+    color: green;
+}
+
+.level-not-passed {
+    margin-right: 0.5rem;
+    color: grey;
+}
+
+.level-container {
+    margin-right: 30px;
+    font-size: 1.2rem;
+}
+
+.level-container:hover {
+    cursor: pointer;
+    background-color: darkgray;
+}
+
+.success {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.board-tile.hover {
+    transform: scale(1.1) !important;
+}
+
+.html-editor-line.hover {
+    color: black;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0.33;
+    }
+}
+.grid-tile {
+    image-rendering: pixelated;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 75%;
+    box-sizing: border-box;
+}
+.board-tile.highlight {
+    animation: blink 1.1s infinite;
+}
+
+.board-tile .post-it {
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    position: relative;
+    bottom: 25%;
+    color: black;
+    box-shadow: -3px 4px 0 rgb(0 0 0 / 10%);
+    transform: rotate(-5deg);
+    padding: 5px;
+}
+
+.board-tile .post-it.post-it-yellow {
+    background-color: rgba(250, 239, 171, 255);
+}
+.board-tile .post-it.post-it-blue {
+    background-color: rgba(86, 196, 231, 255);
+}
+.board-tile .post-it.post-it-pink {
+    background-color: rgba(237, 91, 162, 255);
+}
+
+#code {
+    display: block;
+    width: 100%;
+    height: 1.5rem;
+    line-height: 150%;
+    border: none;
+    outline: none;
+    resize: none;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    word-break: break-all;
+}
+
+.reset-button-container {
+    margin-top: auto;
+    margin-bottom: 5rem;
+    display: flex;
+    justify-content: center;
+}
+.reset-button {
+    width: 40%;
+    height: 200%;
+    border: 0;
+    border-radius: 0.5rem;
+    background: gray;
+    color: black;
+    font-size: 1.2rem;
+}
+.reset-button:hover {
+    background: white;
+    cursor: pointer;
+}
+
+.progress-container {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.progress-outer {
+    width: 100%;
+    height: 0.75rem;
+    background: lightgray;
+    border: 3px solid black;
+    border-radius: 0.5rem;
+}
+
+.progress-inner {
+    width: 0%;
+    background: var(--color-progress-background);
+    height: 100%;
+    border: 0;
+    border-radius: 0.5rem;
+}
+
+.credits-container {
+    margin-top: 3rem;
+}
+.credits-container a {
+    color: black;
+    text-decoration: underline;
+}
+
+.language-container {
+    margin-top: 1rem;
+}
+.language-container a {
+    color: black;
+    text-decoration: underline;
+}
+
+.game-finished {
+    position: absolute;
+    min-width: 30vw;
+    min-height: 20vh;
+    top: calc(40% - 10vh);
+    left: calc(50% - 15vw);
+    background: white;
+    border: 2px solid black;
+    z-index: 5;
+    text-align: center;
+    padding: 1rem;
+    box-shadow: 5px 5px 0px 0px lightgrey;
+}
+.game-finished-header {
+    font-size: 6rem;
+}
+
+.game-finished .close {
+    display: inline-block;
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.game-finished .close:hover {
+    color: lightgray;
+    cursor: pointer;
+}
+
+.street-sign {
+    background-image: url("/img/street_sign.png");
+    background-size: 100% 100%;
+    height: 100%;
+    width: 100%;
+    font-family: "Satisfy", sans-serif;
+    font-size: 1rem;
+    position: relative;
+    color: black;
+    transform: rotate(-5deg);
+    padding-top: 2rem;
+}
+
+.fireworks-container {
+    visibility: hidden;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    position: absolute;
+    width: 100vw;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+#selector-text {
+    position: absolute;
+    background: white;
+    padding: 10px 15px;
+    z-index: 1000;
+    font-size: 1.1rem;
+    color: gray;
+    border-bottom: solid 2px lightgray;
+    box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.3);
+    transform: rotateX(15deg);
+    outline: solid 1px transparent;
+    display: none;
+}
+
+#mobile-warning {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    padding: 20px;
+    background-color: #ff9800;
+    color: white;
+    margin-bottom: 15px;
+    width: 100%;
+    display: none;
+}
+
+#mobile-warning .close-button {
+    margin-left: 15px;
+    color: black;
+    font-weight: bold;
+    float: right;
+    font-size: 2rem;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+#mobile-warning .close-button:hover {
+    color: white;
+}

@@ -1,0 +1,104 @@
+@media (max-width: 1365px), only screen and (hover: none) and (pointer: coarse) and (orientation: portrait) {
+    html,
+    body {
+        overflow: initial;
+        padding-left: min(0vmin, env(safe-area-inset-left));
+        padding-right: min(0vmin, env(safe-area-inset-right));
+        background: black;
+        background-size: cover;
+        overflow-x: hidden;
+    }
+
+    #container {
+        flex-direction: column;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    #board {
+        grid-template: repeat(10, 64px) / repeat(10, 64px);
+    }
+
+    .header {
+        font-size: 1.1rem;
+    }
+
+    #level-name {
+        font-size: 3rem;
+    }
+
+    #js-input pre {
+        word-break: break-all;
+    }
+
+    .game {
+        flex-basis: 25%;
+        padding-bottom: 2rem;
+    }
+
+    .editors {
+        flex-basis: 75%;
+        flex-direction: column-reverse;
+        min-height: 60rem;
+    }
+
+    .level {
+        flex-basis: 50%;
+        font-size: 1.05rem;
+        min-height: 40rem;
+    }
+
+    .help {
+        font-size: 1rem;
+    }
+
+    code {
+        font-size: 1rem;
+    }
+
+    .editor * {
+        font-size: 14px;
+    }
+
+    .menu {
+        flex-basis: 50%;
+        font-size: 1.05rem;
+        min-height: 40rem;
+    }
+
+    .game-finished {
+        min-width: 80vw;
+        min-height: 20vh;
+        top: calc(20% - 5vh);
+        left: calc(50% - 40vw);
+    }
+
+    #dom-tree div {
+        height: 100%;
+    }
+
+    .board-tile .post-it {
+        font-size: 0.8rem;
+        padding: 1px;
+    }
+
+    #level-header-text {
+        font-size: 1.8rem;
+    }
+
+    .menu-header {
+        font-size: 0.9rem;
+    }
+
+    .level-nav svg {
+        font-size: 1.8rem;
+    }
+
+    #selector-text {
+        font-size: 0.6rem;
+    }
+
+    #mobile-warning {
+        display: block !important;
+    }
+}

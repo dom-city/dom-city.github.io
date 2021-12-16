@@ -1,0 +1,26 @@
+@-webkit-keyframes flash30 {
+    0%,
+    50%,
+    to {
+        opacity: 1;
+    }
+    25%,
+    75% {
+        opacity: 0.3;
+    }
+}
+@keyframes flash30 {
+    0%,
+    50%,
+    to {
+        opacity: 1;
+    }
+    25%,
+    75% {
+        opacity: 0.3;
+    }
+}
+.animate__flash30 {
+    -webkit-animation-name: flash30;
+    animation-name: flash30;
+}

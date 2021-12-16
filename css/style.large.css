@@ -1,0 +1,55 @@
+@media (min-width: 1600px) {
+    html,
+    body {
+        overflow: hidden;
+    }
+
+    .header {
+        font-size: 1.1rem;
+    }
+
+    #level-name {
+        font-size: 3rem;
+    }
+
+    #container {
+        width: 100vw;
+        height: 100vh;
+        flex-direction: row;
+    }
+
+    .game {
+        flex-basis: 40%;
+    }
+
+    #board {
+        grid-template: repeat(10, 64px) / repeat(10, 64px);
+    }
+
+    .editors {
+        flex-basis: 35%;
+        flex-direction: column;
+    }
+
+    .level {
+        flex-basis: 25%;
+        font-size: 1.1rem;
+    }
+
+    .help {
+        font-size: 1rem;
+    }
+
+    code {
+        font-size: 1rem;
+    }
+
+    .editor * {
+        font-size: 16px;
+    }
+
+    .menu {
+        flex-basis: 25%;
+        font-size: 1.1rem;
+    }
+}

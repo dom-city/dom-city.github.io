@@ -1,0 +1,32 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Mocha Tests</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./js/mocha/mocha.css" />
+
+        <script src="./js/chai/chai.min.js"></script>
+        <script src="./js/mocha/mocha.min.js"></script>
+    </head>
+    <body>
+        <div id="mocha"></div>
+
+        <script>
+            const expect = chai.expect;
+        </script>
+        <script>
+            mocha.setup("bdd");
+        </script>
+
+        <script src="./js/LanguageManager.test.js" type="module"></script>
+        <script src="./js/LevelManager.test.js" type="module"></script>
+        <script src="./js/LevelTranslator.test.js" type="module"></script>
+        <script src="./js/CodeEvaluator.test.js" type="module"></script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function (event) {
+                mocha.run();
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" class="notranslate" translate="no">
+    <head>
+        <title>DOM City</title>
+
+        <meta charset="utf-8" />
+        <meta property="og:url" content="https://dom-city.github.io/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="DOM City" />
+        <meta property="og:description" content="Learning the DOM-API in a playful way" />
+        <meta name="google" content="notranslate">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1" />
+
+        <script src="js/jquery/jquery-3.6.0.min.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="js/LevelManager.js" type="module" charset="utf-8"></script>
+        <script src="/js/LanguageManager.js" type="module" charset="utf-8"></script>
+
+        <script src="/js/Helper.js" type="module" charset="utf-8"></script>
+        <script src="/js/LevelTranslator.js" type="module" charset="utf-8"></script>
+        <script src="/js/CodeEvaluator.js" type="module" charset="utf-8"></script>
+
+        <script src="/js/Game.js" type="module" charset="utf-8"></script>
+
+        <link rel="icon" type="image/png" href="favicon.png" />
+        <link rel="stylesheet" href="css/fonts/exo-2-v15-latin/exo-2-v15-latin.css" type="text/css" media="screen" charset="utf-8" />
+        <link rel="stylesheet" href="css/fonts/roboto-v29-latin/roboto-v29-latin.css" type="text/css" media="screen" charset="utf-8" />
+
+        <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+        <link rel="stylesheet" href="css/style.small.css" type="text/css" media="screen" charset="utf-8" />
+        <link rel="stylesheet" href="css/style.medium.css" type="text/css" media="screen" charset="utf-8" />
+        <link rel="stylesheet" href="css/style.large.css" type="text/css" media="screen" charset="utf-8" />
+        <link rel="stylesheet" href="css/style.xlarge.css" type="text/css" media="screen" charset="utf-8" />
+        <link rel="stylesheet" href="css/animate/animate.min.css" type="text/css" media="screen" charset="utf-8" />
+        <link rel="stylesheet" href="css/animate/animate.ext.css" type="text/css" media="screen" charset="utf-8" />
+
+        <script defer src="/js/fontawesome-free-600-beta2/all.js"></script>
+        <script src="/js/fireworks-js/fireworks.js"></script>
+    </head>
+
+    <body>
+        <div class="fireworks-container"></div>
+        <div class="game-finished" style="display: none;">
+            <div class="game-finished-header">You rock!</div>
+            <div class="close"><i class="fa-solid fa-xmark"></i></div>
+            <div class="game-finished-text">
+                <p>You successfully solved all xx levels of DOM City. Now you are a real master of the DOM-API!</p>
+                <p>Feel free to share this game. If you want to learn more about CSS, check out CSS Diner, Flexbox Frogg and Grid Garden</p>
+            </div>
+        </div>
+        <div id="container">
+            <div class="game">
+                <div class="header"><img src="./favicon.png"></img><div>DOM City</div></div>
+                <div id="level-name"></div>
+                <div style="display: flex; justify-content: center; align-items: center">
+                    <div id="board"></div>
+                </div>
+                <div class="credits-container">
+                    DOM City is created by <a href="https://github.com/wakatoa" target="_blank">@wakatoa</a> • <a href="https://github.com/dom-city/dom-city.github.io" target="_blank">Github</a> <a href="/about">About</a>
+                </div>
+                <div class="language-container">
+                    <a href="#en">English</a> • <a href="#de">Deutsch</a>
+                </div>
+            </div>
+            <div class="editors">
+                <div class="editor-upper">
+                    <div class="editor">
+                        <div class="input-header">
+                            <div class="file-name">city.js</div>
+                            <span>JavaScript-Editor</span>
+                        </div>
+                        <div class="file-window code-view">
+                            <div class="line-numbers">1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br />10<br />11<br />12<br />13<br />14<br />15<br />16<br />17<br />18<br />19<br />20</div>
+                            <div class="code-markup">
+                                <div style="white-space: pre-wrap" id="js-input"></div>
+                            </div>
+                            <button class="editor-button">Enter</button>
+                            <div class="success" style="display: none">
+                                <i class="fa-solid fa-check" style="font-size: 10em"></i>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="editor-lower">
+                    <div class="editor">
+                        <div class="input-header">
+                            <div class="file-name">city.html</div>
+                            <span>HTML-Editor</span>
+                        </div>
+                        <div class="file-window code-view">
+                            <div class="line-numbers">1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br />10<br />11<br />12<br />13<br />14<br />15<br />16<br />17<br />18<br />19<br />20</div>
+                            <div class="code-markup">
+                                <div style="white-space: pre-wrap" id="dom-tree"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="level">
+                <div id="level-header">
+                    <h1><span id="level-header-text"></span></h1>
+                    <div class="level-nav">
+                        <button class="nav-button prev"><i class="fa-solid fa-chevron-left fa-3x"></i></a>
+                        <button class="nav-button next"><i class="fa-solid fa-chevron-right fa-3x"></i></a>
+                        <button class="nav-menu"><i class="fa-solid fa-bars fa-3x"></i></a>
+                    </div>
+                </div>
+
+                <div class="progress-container">
+                    <div class="progress-outer">
+                        <div class="progress-inner"></div>
+                    </div>
+                </div>
+
+                <div class="help">
+                    <h3><span id="api-member-name" style="font-size: 1.1em; white-space: pre-wrap"></span></h3>
+                    <h4><span id="api-member-explanation" style="white-space: pre-wrap"></span></h4>
+                    <h3><span>Syntax</span></h3>
+                    <h4><span id="api-member-syntax" style="white-space: pre-wrap"></span></h4>
+                    <h3><span>Examples</span></h3>
+                    <h4><span id="api-member-examples" style="white-space: pre-wrap"></span></h4>
+                </div>
+            </div>
+            <div class="menu hidden">
+                <div class="menu-header">
+                    <h1>Select a level</h1>
+                    <button class="close-menu"><i class="fa-solid fa-xmark fa-3x"></i></a>
+                </div>
+
+                <div class="levels"></div>
+                <div class="reset-button-container">
+                    <button class="reset-button">Reset</button>
+                </div>
+            </div>
+        </div>
+        <div id="selector-text"></div>
+        <div id="mobile-warning">
+        <span class="close-button" onclick="this.parentElement.remove()">&times;</span>
+        </div>
+    </body>
+</html>
