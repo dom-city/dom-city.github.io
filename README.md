@@ -28,12 +28,12 @@ Pull requests are welcome!
 
 Currently, the following languages are supported:
 
--   English by [WakaToa](https://github.com/wakatoa)
--   German by [WakaToa](https://github.com/wakatoa)
+-   English
+-   German
 
 ## Author
 
--   [GitHub](https://github.com/wakatoa)
+-   [WakaToa - GitHub](https://github.com/wakatoa)
 
 ## License
 
