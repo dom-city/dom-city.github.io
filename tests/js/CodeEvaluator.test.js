@@ -2,8 +2,8 @@ import LevelTranslator from "../../js/LevelTranslator.js";
 import CodeEvaluator from "../../js/CodeEvaluator.js";
 
 describe("CodeEvaluator", function () {
-    const levelTranslator = new LevelTranslator();
-    const codeEvaluator = new CodeEvaluator();
+    const levelTranslator = new LevelTranslator("de");
+    const codeEvaluator = new CodeEvaluator("de");
 
     describe("Query", function () {
         const levelQuery = {
@@ -11,7 +11,9 @@ describe("CodeEvaluator", function () {
                 before: "",
                 input: "",
                 after: "",
-                expected: [`document.getElementsByTagName('house');`],
+            },
+            codeEvaluator: {
+                expected: [`document.getElementsByTagName('haus');`],
                 checkType: "query",
             },
             boardGame: {
@@ -40,13 +42,13 @@ describe("CodeEvaluator", function () {
             it("should generate a valid html string", function () {
                 let dummyDOM = codeEvaluator.generateDummyDOM(levelQuery.boardGame);
 
-                expect(dummyDOM).to.equal("<street><house></house><house></house></street>");
+                expect(dummyDOM).to.equal("<straße><haus></haus><haus></haus></straße>");
             });
         });
         describe("evalDOMQuery()", function () {
             it("should validate the task correctly", function () {
-                expect(codeEvaluator.evalDOMQuery("document.querySelectorAll('house');", levelQuery)).to.equal(true);
-                expect(codeEvaluator.evalDOMQuery("document.getElementsByTagName('house');", levelQuery)).to.equal(true);
+                expect(codeEvaluator.evalDOMQuery("document.querySelectorAll('haus');", levelQuery)).to.equal(true);
+                expect(codeEvaluator.evalDOMQuery("document.getElementsByTagName('haus');", levelQuery)).to.equal(true);
             });
         });
     });
@@ -57,7 +59,9 @@ describe("CodeEvaluator", function () {
                 before: "",
                 input: "",
                 after: "",
-                expected: [`let house = document.querySelector("[name='special']");`, `house.remove();`],
+            },
+            codeEvaluator: {
+                expected: [`let haus = document.querySelector("[name='besonders']");`, `haus.remove();`],
                 checkType: "modification",
             },
             boardGame: {
@@ -69,7 +73,7 @@ describe("CodeEvaluator", function () {
                     {
                         type: "house",
                         location: [1, 2],
-                        attributes: { initial: { name: ["special"] } },
+                        attributes: { initial: { name: "special" } },
                     },
                     {
                         type: "house",
@@ -87,13 +91,13 @@ describe("CodeEvaluator", function () {
             it("should generate a valid html string", function () {
                 let dummyDOM = codeEvaluator.generateDummyDOM(levelModification.boardGame);
 
-                expect(dummyDOM).to.equal('<street><house name="special"></house><house></house></street>');
+                expect(dummyDOM).to.equal('<straße><haus name="besonders"></haus><haus></haus></straße>');
             });
         });
 
         describe("evalDOMModifications()", function () {
             it("should validate the task correctly", function () {
-                expect(codeEvaluator.evalDOMModifications(`let house = document.querySelector("[name='special']"); house.remove();`, levelModification)).to.equal(true);
+                expect(codeEvaluator.evalDOMModifications(`let house = document.querySelector("[name='besonders']"); house.remove();`, levelModification)).to.equal(true);
             });
         });
     });

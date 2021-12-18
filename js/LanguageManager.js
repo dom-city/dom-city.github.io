@@ -1,28 +1,5 @@
 export default {
     languages: {
-        en: {
-            createdBy: "DOM-City is created by {0} • {1} • <a href='/about.html'>About</a>",
-            jsEditorTitle: "JavaScript-Editor",
-            htmlEditorTitle: "HTML-Editor",
-            level: "Level {0} of {1}",
-            selectLevel: "Select a level",
-            resetButton: "Reset",
-            nextButton: "Next",
-            gameFinishedHeader: "You rock!",
-            gameFinishedText:
-                "<p>You successfully solved all xx levels of DOM City. Now you are a real master of the DOM-API!</p><p>Feel free to share this game. If you want to learn more about CSS, check out CSS Diner, Flexbox Froggy and Grid Garden!</p>",
-            mobileWarning:
-                "Warning! If you are playing DOM City on a smartphone or tablet, the game experience may be limited due to the small display. It is recommended to play DOM City on a laptop or desktop computer.",
-
-            tags: {
-                street: "street",
-                house: "house",
-                small: "small",
-                blue: "blue",
-                special: "special",
-                bakerstreet: "BakerStreet",
-            },
-        },
         de: {
             createdBy: "DOM-City wurde entwickelt von {0} • {1} • <a href='/about.html'>Über</a>",
             jsEditorTitle: "JavaScript-Editor",
@@ -46,9 +23,32 @@ export default {
                 bakerstreet: "Gartenstraße",
             },
         },
+        en: {
+            createdBy: "DOM-City is created by {0} • {1} • <a href='/about.html'>About</a>",
+            jsEditorTitle: "JavaScript-Editor",
+            htmlEditorTitle: "HTML-Editor",
+            level: "Level {0} of {1}",
+            selectLevel: "Select a level",
+            resetButton: "Reset",
+            nextButton: "Next",
+            gameFinishedHeader: "You rock!",
+            gameFinishedText:
+                "<p>You successfully solved all xx levels of DOM City. Now you are a real master of the DOM-API!</p><p>Feel free to share this game. If you want to learn more about CSS, check out CSS Diner, Flexbox Froggy and Grid Garden!</p>",
+            mobileWarning:
+                "Warning! If you are playing DOM City on a smartphone or tablet, the game experience may be limited due to the small display. It is recommended to play DOM City on a laptop or desktop computer.",
+
+            tags: {
+                street: "street",
+                house: "house",
+                small: "small",
+                blue: "blue",
+                special: "special",
+                bakerstreet: "BakerStreet",
+            },
+        },
     },
 
     getTranslation(lang) {
-        return this.languages[lang] || this.languages["en"];
+        return this.languages[lang] || this.languages["de"];
     },
 };

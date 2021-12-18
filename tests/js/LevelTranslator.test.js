@@ -63,10 +63,10 @@ describe("LevelTranslator", function () {
             let divs = fragment.querySelectorAll("div");
             expect(divs.length).to.equal(5);
             expect(divs[0].innerHTML).to.have.string("DOCTYPE", "html");
-            expect(divs[1].innerHTML).to.have.string("street", "html-editor-line");
-            expect(divs[2].innerHTML).to.have.string("house", "html-editor-line");
-            expect(divs[3].innerHTML).to.have.string("house", "html-editor-line");
-            expect(divs[4].innerHTML).to.have.string("street", "html-editor-line");
+            expect(divs[1].innerHTML).to.have.string("straße", "html-editor-line");
+            expect(divs[2].innerHTML).to.have.string("haus", "html-editor-line");
+            expect(divs[3].innerHTML).to.have.string("haus", "html-editor-line");
+            expect(divs[4].innerHTML).to.have.string("straße", "html-editor-line");
         });
     });
     describe("generateTilesArray()", function () {

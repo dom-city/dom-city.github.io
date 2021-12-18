@@ -1,10 +1,10 @@
-import LevelsEN from "./Levels.en.js";
 import LevelsDE from "./Levels.de.js";
+import LevelsEN from "./Levels.en.js";
 
 export default {
-    levels: { en: LevelsEN, de: LevelsDE },
+    levels: { de: LevelsDE, en: LevelsEN },
 
     getLevels(lang) {
-        return this.levels[lang] || this.levels["en"];
+        return this.levels[lang] || this.levels["de"];
     },
 };

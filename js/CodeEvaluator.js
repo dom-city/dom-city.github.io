@@ -10,6 +10,7 @@ export default class CodeEvaluator {
     }
 
     generateDummyDOM(obj) {
+        let translation = this.translation;
         let htmlCode = "";
 
         if (!obj) {
@@ -37,11 +38,11 @@ export default class CodeEvaluator {
                     });
                     classText = ` class="${classArray.join(" ")}"`;
                 }
-                htmlCode += `<${this.translation.tags.street}${idText}${nameText}${classText}>${textText}`;
+                htmlCode += `<${translation.tags.street}${idText}${nameText}${classText}>${textText}`;
                 obj.children?.forEach((element) => {
                     htmlCode += this.generateDummyDOM(element);
                 });
-                htmlCode += `</${this.translation.tags.street}>`;
+                htmlCode += `</${translation.tags.street}>`;
                 break;
             }
             case "house": {
@@ -66,7 +67,7 @@ export default class CodeEvaluator {
                     classText = ` class="${classArray.join(" ")}"`;
                 }
 
-                htmlCode += `<${this.translation.tags.house}${idText}${nameText}${classText}>${textText}</${this.translation.tags.house}>`;
+                htmlCode += `<${translation.tags.house}${idText}${nameText}${classText}>${textText}</${translation.tags.house}>`;
 
                 break;
             }
