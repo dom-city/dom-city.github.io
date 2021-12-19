@@ -551,7 +551,7 @@ export default [
 
                         {
                             type: "house",
-                            attributes: { initial: { name: ["besonders"] } },
+                            attributes: { initial: { name: ["special"] } },
                             location: [4, 5],
                         },
 

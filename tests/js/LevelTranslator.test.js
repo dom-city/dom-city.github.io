@@ -1,7 +1,7 @@
 import LevelTranslator from "../../js/LevelTranslator.js";
 
 describe("LevelTranslator", function () {
-    const levelTranslator = new LevelTranslator();
+    const levelTranslator = new LevelTranslator("de");
 
     const boardGame = {
         type: "street",

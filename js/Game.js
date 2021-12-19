@@ -52,6 +52,9 @@ class Game {
         $(".menu-header h1").text(this.translation.selectLevel);
         $(".reset-button").text(this.translation.resetButton);
 
+        $("#api-member-syntax-title").text(this.translation.syntaxTitle);
+        $("#api-member-examples-title").text(this.translation.examplesTitle);
+
         $(".game-finished-header").html(this.translation.gameFinishedHeader);
         $(".game-finished-text").html(this.translation.gameFinishedText);
 

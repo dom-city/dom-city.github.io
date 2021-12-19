@@ -97,7 +97,7 @@ describe("CodeEvaluator", function () {
 
         describe("evalDOMModifications()", function () {
             it("should validate the task correctly", function () {
-                expect(codeEvaluator.evalDOMModifications(`let house = document.querySelector("[name='besonders']"); house.remove();`, levelModification)).to.equal(true);
+                expect(codeEvaluator.evalDOMModifications(`let haus = document.querySelector("[name='besonders']"); haus.remove();`, levelModification)).to.equal(true);
             });
         });
     });
