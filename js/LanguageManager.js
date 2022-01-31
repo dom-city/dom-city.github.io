@@ -1,3 +1,5 @@
+/* manages the static translations */
+
 export default {
     languages: {
         de: {
@@ -9,6 +11,7 @@ export default {
             syntaxTitle: "Syntax",
             examplesTitle: "Beispiele",
             resetButton: "Zurücksetzen",
+            resetText: "Soll das Spiel wirklich zurückgesetzt werden?",
             nextButton: "Weiter",
             gameFinishedHeader: "Klasse!",
             gameFinishedText:
@@ -33,6 +36,7 @@ export default {
             syntaxTitle: "Syntax",
             examplesTitle: "Examples",
             resetButton: "Reset",
+            resetText: "Do you really want to reset the game?",
             nextButton: "Next",
             gameFinishedHeader: "You rock!",
             gameFinishedText:

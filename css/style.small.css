@@ -46,6 +46,12 @@
         flex-basis: 50%;
         font-size: 1.05rem;
         min-height: 40rem;
+
+        padding:  
+        env(safe-area-inset-top) 
+        max(env(safe-area-inset-right), 1rem) 
+        0  
+        max(env(safe-area-inset-left), 1rem) 
     }
 
     .help {
@@ -64,6 +70,12 @@
         flex-basis: 50%;
         font-size: 1.05rem;
         min-height: 40rem;
+
+        padding:
+        env(safe-area-inset-top) 
+        max(env(safe-area-inset-right), 1rem) 
+        0  
+        max(env(safe-area-inset-left), 1rem) 
     }
 
     .game-finished {

@@ -2,6 +2,10 @@ import LanguageManager from "./LanguageManager.js";
 
 import { generateRandomId } from "./Helper.js";
 
+
+/*
+Translates a gameboard object into two parts: an array which will be displayed in the user interface and a html-structure which will be visible in the html editor
+*/
 export default class LevelTranslator {
     translation = null;
 
@@ -9,6 +13,7 @@ export default class LevelTranslator {
         this.translation = LanguageManager.getTranslation(langCode);
     }
 
+    /*adds a random id to identify an object*/
     prepareGameBoard(boardGame) {
         boardGame.id = generateRandomId();
 
@@ -17,6 +22,7 @@ export default class LevelTranslator {
         });
     }
 
+    /*converts the gameboard object into a 2d array*/
     generateGameObject2DArray(obj, arr) {
         if (!arr) {
             arr = Array(10)
@@ -76,6 +82,7 @@ export default class LevelTranslator {
         return arr;
     }
 
+    /* converts an gameboard object into a html structure */
     generateHTMLEditorDOMTree(obj, intend) {
         let translation = this.translation;
         let htmlCode = "";
@@ -223,6 +230,7 @@ export default class LevelTranslator {
         return htmlCode;
     }
 
+    /** logic for generating a tile array from the 2d array*/
     generateTilesArray(arr) {
         let retArr = [];
 
@@ -290,6 +298,8 @@ export default class LevelTranslator {
         return retArr;
     }
 
+
+    /** generates a street description which is used to identify the correct tile*/
     generateStreetDescription(arr, i1, i2, initial = true) {
         let t = null,
             r = null,
@@ -360,6 +370,7 @@ export default class LevelTranslator {
         return sd;
     }
 
+    /* generates the correct tile for a given street description */
     generateStreetTile(sd) {
         let tile = null;
 

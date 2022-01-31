@@ -2,6 +2,8 @@ import LanguageManager from "./LanguageManager.js";
 
 import { generateRandomId } from "./Helper.js";
 
+/* responsible to check the user input */
+
 export default class CodeEvaluator {
     translation = null;
 

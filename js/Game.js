@@ -5,6 +5,8 @@ import LanguageManager from "./LanguageManager.js";
 
 import { formatString, getElementPosition } from "./Helper.js";
 
+/* main logic */
+
 class Game {
     langCode = window.location.hash.substring(1) || localStorage.langCode || "de";
     currentLevelIndex = parseInt(localStorage.currentLevelIndex) || 0;
@@ -18,6 +20,7 @@ class Game {
 
     fireworks = null;
 
+    /* starts the game */
     start() {
         this.translateGame();
         this.initLevelsWithLanguage();
@@ -28,6 +31,7 @@ class Game {
         this.initFireworks();
     }
 
+    /* initalized the levels */
     initLevelsWithLanguage() {
         localStorage.langCode = this.langCode;
         this.levels = LevelManager.getLevels(this.langCode);
@@ -36,6 +40,7 @@ class Game {
         this.codeEvaluator = new CodeEvaluator(this.langCode);
     }
 
+    /* translates static parts of the game */
     translateGame() {
         this.translation = LanguageManager.getTranslation(this.langCode);
 
@@ -61,6 +66,8 @@ class Game {
         $("#mobile-warning").append(this.translation.mobileWarning);
     }
 
+
+    /* initialized handlers */
     initHandlers() {
         $("#board, #dom-tree").on("mouseenter", ".board-tile, .html-editor-line", function (e) {
             hoverElementById($(e.currentTarget).data("id"));
@@ -160,7 +167,9 @@ class Game {
         });
 
         $(".reset-button").click(() => {
-            this.resetProgress();
+            if (confirm(this.translation.resetText)) {
+                this.resetProgress();
+            }
         });
 
         $(".language-container a").click((e) => {
@@ -193,6 +202,7 @@ class Game {
         $(window).trigger("resize");
     }
 
+    /* initialized the firework api */
     initFireworks() {
         let container = document.querySelector(".fireworks-container");
         this.fireworks = new Fireworks(container, {
@@ -241,6 +251,7 @@ class Game {
         this.loadLevel();
     }
 
+    /* builds the level menu */
     buildLevelMenu() {
         this.levels.forEach((level, index) => {
             $(".menu .levels").append(
@@ -270,6 +281,7 @@ class Game {
         });
     }
 
+    /* loading a level */
     loadLevel() {
         if (this.currentLevelIndex < 0) {
             this.currentLevelIndex = 0;
@@ -309,10 +321,10 @@ class Game {
         $("#dom-tree > div.html-editor-line[data-transition='dropin']").css("visibility", "hidden");
 
         let object2DArray = this.levelTranslator.generateGameObject2DArray(level.boardGame);
-        let tiles2DArray = this.levelTranslator.generateTilesArray(object2DArray);
+        let tilesArray = this.levelTranslator.generateTilesArray(object2DArray);
 
         $("#board").empty();
-        tiles2DArray.forEach((e) => {
+        tilesArray.forEach((e) => {
             if (e) {
                 let div = $("<div>", { class: "board-tile grid-tile", "data-id": e.id });
                 div.css("background-image", `url(/img/${e.tile})`);

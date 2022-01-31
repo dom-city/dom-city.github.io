@@ -8,7 +8,7 @@ export default [
         apiMemberExamples: ["<code>let items = document.getElementsByTagName('li').length;</code>"], //single line or multiple as array
 
         jsEditor: {
-            before: `/*Hallo! Du scheinst neu in DOM City zu sein...\nUm zu Beginnen, selektiere die Straße mithilfe der getElementsByTagName Methode!\ngetElementsByTagName gibt dir eine Collection zurück. Um an die einzelne Straße zu kommen, musst du das erste Element selektieren ([0]).*/\n\n`,
+            before: `/*Hallo! Du scheinst neu in DOM City zu sein...\nUm zu beginnen, selektiere die Straße mithilfe der getElementsByTagName Methode!\ngetElementsByTagName gibt dir eine Collection zurück. Um an die einzelne Straße zu kommen, musst du das erste Element selektieren ([0]).*/\n\n`,
             input: "document.",
             after: "",
         },

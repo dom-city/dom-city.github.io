@@ -1,3 +1,5 @@
+/* helper functions */
+
 function generateRandomId() {
     return (
         Math.random()
